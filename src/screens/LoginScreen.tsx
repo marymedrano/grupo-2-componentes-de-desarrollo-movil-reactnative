@@ -31,8 +31,11 @@ export const LoginScreen: React.FC<LoginProps> = (props) => {
 
     //mensaje de error en pantalla
     useEffect(() => {
-        Alert.alert('Inicio de sesión incorrecto. Revisar credenciales.'),errorMessage,[{text:'ok',onPress:removeError}]
+        if(errorMessage){
+        Alert.alert('Inicio de sesión incorrecto. Revisar credenciales.'),errorMessage,[{text:'ok',onPress:removeError}],
         // console.log(errorMessage)  
+    [{text:"ok",onPress:removeError}]
+    }
     }, [errorMessage])
 
     const onLogin = () => {
